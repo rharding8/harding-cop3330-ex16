@@ -18,7 +18,15 @@ public class DrivingAge {
 
   public int getAge() {
     System.out.print("How old are you? ");
-    return input.nextInt();
+    String n = input.next();
+    try {
+      Integer.parseInt(n);
+    }
+    catch (NumberFormatException e) {
+      System.out.println("ERROR: Invalid Amount! Try Again.");
+      return getAge();
+    }
+    return Integer.parseInt(n);
   }
 
   public String checkAge(int age) {
